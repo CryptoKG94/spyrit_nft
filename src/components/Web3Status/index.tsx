@@ -6,13 +6,12 @@ import { Activity } from 'react-feather'
 import { useTranslation } from 'react-i18next'
 import styled, { css } from 'styled-components'
 import CoinbaseWalletIcon from '../../assets/images/coinbaseWalletIcon.svg'
-import FortmaticIcon from '../../assets/images/fortmaticIcon.png'
+// import FortmaticIcon from '../../assets/images/fortmaticIcon.png'
 import PortisIcon from '../../assets/images/portisIcon.png'
 import WalletConnectIcon from '../../assets/images/walletConnectIcon.svg'
 import { fortmatic, injected, portis, walletconnect, walletlink } from '../../connectors'
 import { NetworkContextName } from '../../constants'
 import useENSName from '../../hooks/useENSName'
-import { useHasSocks } from '../../hooks/useSocksBalance'
 import { useWalletModalToggle } from '../../state/application/hooks'
 import { isTransactionRecent, useAllTransactions } from '../../state/transactions/hooks'
 import { TransactionDetails } from '../../state/transactions/reducer'
@@ -25,7 +24,7 @@ import Loader from '../Loader'
 import { RowBetween } from '../Row'
 import WalletModal from '../WalletModal'
 
-import walletIcon from '../../assets/wallet.png'
+// import walletIcon from '../../assets/wallet.png'
 
 const IconWrapper = styled.div<{ size?: number }>`
   ${({ theme }) => theme.flexColumnNoWrap};
@@ -148,12 +147,12 @@ function StatusIcon({ connector }: { connector: AbstractConnector }) {
         <img src={CoinbaseWalletIcon} alt={''} />
       </IconWrapper>
     )
-  } else if (connector === fortmatic) {
-    return (
-      <IconWrapper size={16}>
-        <img src={FortmaticIcon} alt={''} />
-      </IconWrapper>
-    )
+  // } else if (connector === fortmatic) {
+  //   return (
+  //     <IconWrapper size={16}>
+  //       <img src={FortmaticIcon} alt={''} />
+  //     </IconWrapper>
+  //   )
   } else if (connector === portis) {
     return (
       <IconWrapper size={16}>
@@ -180,7 +179,6 @@ function Web3StatusInner() {
   const pending = sortedRecentTransactions.filter(tx => !tx.receipt).map(tx => tx.hash)
 
   const hasPendingTransactions = !!pending.length
-  const hasSocks = useHasSocks()
   const toggleWalletModal = useWalletModalToggle()
 
   const addMaticToMetamask = () => {
@@ -227,7 +225,6 @@ function Web3StatusInner() {
           </RowBetween>
         ) : (
             <>
-              {hasSocks ? SOCK : null}
               <Text>{ENSName || shortenAddress(account)}</Text>
             </>
           )}
@@ -255,7 +252,7 @@ function Web3StatusInner() {
   } else {
     return (
       <Web3StatusConnect id="connect-wallet"  onClick={(ethereum && ethereum.isMetaMask) ? addMaticToMetamask : toggleWalletModal} faded={!account}>
-        <img src={walletIcon} />
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAMAAABsDg4iAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAANJQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////hovIawAAAEZ0Uk5TAAM9Y2ZSBXbpv8XmheIsKdYK9Ukz2w/73tnRzNLV5e15AecmGh8gNNQ5nBIku0fQ/LlUp5pQGIKhHpllwX8lGzIdw//qXhMA7MEAAACcSURBVHicY2DADhiZmFnggJUNIsjOwQkHXNw8EEFePiRt/AKCYFpIGElQRFQMTItLSEpKSklLS0vJyMjKySsoggSVlFUgQFUNCNQ1NEGC3CoojtFiRhfUVtXRZUET1NOQ1jdAFzQ0YlA0Rhc00TJllUIXNDO3MOYACypZothuZQ0ibWyV7eyhTtVRZpJ0AAk6OjkjARdXLAGJEwAACtoSl50RQZsAAAAASUVORK5CYII=" />
         <Text>{(ethereum && ethereum.isMetaMask) ? t('Connect wallet') : t('Connect wallet')}</Text>
       </Web3StatusConnect>
     )
