@@ -21,7 +21,7 @@ export default function Updater(): null {
   const activeListUrls = useActiveListUrls()
 
   // initiate loading
-  useAllInactiveTokens()
+  // useAllInactiveTokens()
 
   const fetchList = useFetchListCallback()
   const fetchAllListsCallback = useCallback(() => {

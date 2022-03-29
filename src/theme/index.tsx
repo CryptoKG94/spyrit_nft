@@ -38,6 +38,7 @@ const black = '#000000'
 
 export function colors(darkMode: boolean): Colors {
   return {
+    darkMode,
     // base
     white,
     black,
@@ -50,6 +51,7 @@ export function colors(darkMode: boolean): Colors {
     text5: darkMode ? '#2C2F36' : '#EDEEF2',
     // linear-gradient(88.56deg, #6616AC -44.34%, #D426FB 77.48%)
     // backgrounds / greys
+    bg0: darkMode ? '#191B1F' : '#FFF',
     //autonio ui change 27-02-2021
     bg1: darkMode ? '#212429' : '#652D85',
     //autonio ui change 27-02-2021
@@ -58,6 +60,7 @@ export function colors(darkMode: boolean): Colors {
     bg3: darkMode ? '#40444F' : '#1A1F28',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#6C7284' : '#888D9B',
+    bg6: darkMode ? '#1A2028' : '#6C7284',
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
@@ -88,10 +91,16 @@ export function colors(darkMode: boolean): Colors {
     green1: '#27AE60',
     yellow1: '#FFE270',
     yellow2: '#FFFFFF',
-    blue1: '#2172E5'
+    yellow3: '#F3B71E',
+    blue1: '#2172E5',
+    blue2: darkMode ? '#5199FF' : '#0068FC',
 
+    error: darkMode ? '#FD4040' : '#DF1F38',
+    success: darkMode ? '#27AE60' : '#007D35',
+    warning: '#FF8F00',
+    
     // dont wanna forget these blue yet
-    // blue4: darkMode ? '#153d6f70' : '#C4D9F8',
+    blue4: darkMode ? '#153d6f70' : '#C4D9F8',
     // blue5: darkMode ? '#153d6f70' : '#EBF4FF',
   }
 }

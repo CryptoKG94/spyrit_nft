@@ -142,7 +142,6 @@ export function useAggregateUniBalance(): TokenAmount | undefined {
 
   const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, uni)
   const uniUnclaimed: TokenAmount | undefined = useUserUnclaimedAmount(account)
-  const uniUnHarvested: TokenAmount | undefined = useTotalUniEarned()
 
   if (!uni) return undefined
 
