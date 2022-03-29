@@ -115,6 +115,7 @@ export default function NftMintNew() {
             return(
               <NftMintCard
                 id={index}
+                key={index}
               />
             )
           })

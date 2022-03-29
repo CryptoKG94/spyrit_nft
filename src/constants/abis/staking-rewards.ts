@@ -1,7 +1,7 @@
 import { Interface } from '@ethersproject/abi'
 import { abi as STAKING_REWARDS_ABI } from '@uniswap/liquidity-staker/build/StakingRewards.json'
-import NFT_MINT_ABI from '../abis/nftMint.json'
-import NFT_STAKE_ABI from '../abis/nftStake.json'
+import { abi as NFT_MINT_ABI } from '../abis/nftMint.json'
+import { abi as NFT_STAKE_ABI } from '../abis/nftStake.json'
 import { abi as STAKING_REWARDS_FACTORY_ABI } from '@uniswap/liquidity-staker/build/StakingRewardsFactory.json'
 
 const STAKING_REWARDS_INTERFACE = new Interface(STAKING_REWARDS_ABI)

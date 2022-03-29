@@ -28,7 +28,7 @@ const NEW_LIST_STATE: ListState = {
   error: null,
   current: null,
   loadingRequestId: null,
-  pendingUpdate: null
+  pendingUpdate: null,
 }
 
 type Mutable<T> = { -readonly [P in keyof T]: T[P] extends ReadonlyArray<infer U> ? U[] : T[P] }
