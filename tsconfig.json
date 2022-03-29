@@ -3,7 +3,8 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "noEmit": true,
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "noImplicitAny": true,
   },
   "exclude": ["node_modules", "cypress"],
   "include": ["src/**/*"]

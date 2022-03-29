@@ -3,6 +3,7 @@ import { ChainId } from '@uniswap/sdk'
 import { useWeb3React as useWeb3ReactCore } from '@web3-react/core'
 import { Web3ReactContextInterface } from '@web3-react/core/dist/types'
 import { useEffect, useState } from 'react'
+import { EthereumProvider } from 'lib/ethereum'
 import { isMobile } from 'react-device-detect'
 import { injected } from '../connectors'
 import { NetworkContextName } from '../constants'
@@ -53,7 +54,7 @@ export function useInactiveListener(suppress = false) {
   const { active, error, activate } = useWeb3ReactCore() // specifically using useWeb3React because of what this hook does
 
   useEffect(() => {
-    const { ethereum } = window
+    const ethereum = window.ethereum as EthereumProvider | undefined
 
     if (ethereum && ethereum.on && !active && !error && !suppress) {
       const handleChainChanged = () => {
