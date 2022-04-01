@@ -93,18 +93,12 @@ const StyleddivNFT = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-left: 350px;
-  ${({ theme }) => theme.mediaWidth.upTo1440`
+  ${({ theme }) => theme.mediaWidth.upToLarge`
     grid-template-columns: repeat(3, 1fr);
     margin-left: 270px;
-`};
-  ${({ theme }) => theme.mediaWidth.upToLarge`
-    grid-template-columns: repeat(2, 1fr);
   `};
-  ${({ theme }) => theme.mediaWidth.upTo1096`
-    margin-left: 100px;
-`};
   ${({ theme }) => theme.mediaWidth.upToMedium`
-    margin-left: 0px;
+    margin-left: 100px;
   `};
   ${({ theme }) => theme.mediaWidth.upToSmall`
     align-items: center;
