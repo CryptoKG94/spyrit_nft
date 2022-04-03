@@ -84,13 +84,13 @@ export default function NftMintNew() {
   } = useNftMintInfo()
 
 
-  const mintPrice_result = parseInt(((mintPrice?.[0])?.result)?.[0]._hex, 16)
-  const nftBalance_result = parseInt(((nftBalance?.[0])?.result)?.[0]._hex, 16)
+  const mintPrice_result = parseInt(mintPrice?._hex, 16)
+  const nftBalance_result = parseInt(nftBalance?._hex, 16)
   // const maxMintAmount_result=parseInt(((maxMintAmount?.[0])?.result)?.[0]._hex,16)
   // const totalSupply_result=parseInt(((totalSupply?.[0])?.result)?.[0]._hex,16)
-  const maxSupply_result = parseInt(((maxIds?.[0])?.result)?.[0]._hex, 16)
+  const maxSupply_result = parseInt(maxIds?._hex, 16)
 
-  const whiteListed_result = ((whiteListed?.[0])?.result)?.[0]
+  const whiteListed_result = whiteListed
   // const mintPaused_result = ((mintPaused?.[0])?.result)?.[0]
 
   // toggle wallet when disconnected

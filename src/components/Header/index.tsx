@@ -32,6 +32,7 @@ import { Dots } from '../swap/styleds'
 import Modal from '../Modal'
 import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
+import NetworkSelector from './NetworkSelector'
 // import { useToggleMenu } from 'state/toggle/hooks'
 
 
@@ -110,7 +111,7 @@ const HeaderRow = styled(RowFixed)`
    width: 100%;
    `};
   `
-   //  border-image: 1px linear-gradient(to right, #A347FF 0%, ##E087FF 100% 64.1% #A347FF 0%);
+//  border-image: 1px linear-gradient(to right, #A347FF 0%, ##E087FF 100% 64.1% #A347FF 0%);
 
 // const HeaderLinks = styled(Row)`
 // flex-wrap:wrap
@@ -310,12 +311,11 @@ const StyledSpy = styled.text`
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.RINKEBY]: 'Rinkeby',
   [ChainId.ROPSTEN]: 'Ropsten',
-  [ChainId.MATIC]: 'Matic',
-  [ChainId.GÖRLI]: 'Görli',
-  [ChainId.KOVAN]: 'Kovan',
+  [ChainId.POLYGON]: 'Matic',
+  [ChainId.BSC]: 'Bsc'
 }
 
-export default function Header({setShowMenu: setShowMenu, showMenu: showMenu}: {setShowMenu: Function, showMenu: boolean}) {
+export default function Header({ setShowMenu: setShowMenu, showMenu: showMenu }: { setShowMenu: Function, showMenu: boolean }) {
   const { account, chainId } = useActiveWeb3React()
   // const { t } = useTranslation()
   const handleClick = useCallback(() => {
@@ -348,15 +348,15 @@ export default function Header({setShowMenu: setShowMenu, showMenu: showMenu}: {
         <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
       </Modal>
       <HeaderRow>
-        { width && width <= 1096 && (
-          <div onClick={handleClick} style={{cursor: "pointer"}} >  
-            <div style={{width: "35px", height: "5px", backgroundColor: "#fff", margin: "6px 0", transition: "0.4s"}} ></div>
-            <div style={{width: "35px", height: "5px", backgroundColor: "#fff", margin: "6px 0", transition: "0.4s"}} ></div>
-            <div style={{width: "35px", height: "5px", backgroundColor: "#fff", margin: "6px 0", transition: "0.4s"}} ></div>
+        {width && width <= 1096 && (
+          <div onClick={handleClick} style={{ cursor: "pointer" }} >
+            <div style={{ width: "35px", height: "5px", backgroundColor: "#fff", margin: "6px 0", transition: "0.4s" }} ></div>
+            <div style={{ width: "35px", height: "5px", backgroundColor: "#fff", margin: "6px 0", transition: "0.4s" }} ></div>
+            <div style={{ width: "35px", height: "5px", backgroundColor: "#fff", margin: "6px 0", transition: "0.4s" }} ></div>
           </div>
         )
         }
-        <div style={{marginRight: "12px"}} />
+        <div style={{ marginRight: "12px" }} />
         <Title href="." style={{ position: 'relative' }}>
           <UniIcon>
             <img width={'60px'} src={darkMode ? Logo1 : Logo1} alt="logo" />
@@ -396,6 +396,9 @@ export default function Header({setShowMenu: setShowMenu, showMenu: showMenu}: {
       </HeaderRow>
       <HeaderControls>
         <HeaderElement>
+          <NetworkSelector />
+        </HeaderElement>
+        <HeaderElement>
           <HideSmall>
             {chainId && NETWORK_LABELS[chainId] && (
               <NetworkCard title={NETWORK_LABELS[chainId]}>{NETWORK_LABELS[chainId]}</NetworkCard>
@@ -413,13 +416,13 @@ export default function Header({setShowMenu: setShowMenu, showMenu: showMenu}: {
           )}
           {!availableClaim && aggregateBalance && (
             <UNIWrapper onClick={() => setShowUniBalanceModal(true)}>
-              <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto',background:'none' }}>
+              <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto', background: 'none' }}>
                 {account && (
                   <HideSmall>
                     <TYPE.white
                       style={{
                         paddingRight: '.4rem'
-                        
+
                       }}
                     >
                       <CountUp
@@ -441,7 +444,7 @@ export default function Header({setShowMenu: setShowMenu, showMenu: showMenu}: {
           <AccountElement active={!!account} style={{ pointerEvents: 'auto', transform: "skew(-20deg)", borderRadius: '0px' }}>
             {account && userEthBalance ? (
               <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                {userEthBalance?.toSignificant(4)} MATIC 
+                {userEthBalance?.toSignificant(4)} MATIC
               </BalanceText>
             ) : null}
             <Web3Status />

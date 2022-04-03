@@ -13,12 +13,12 @@ export { PRELOADED_PROPOSALS } from './proposals'
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
 }
-export const FRAX = new Token(ChainId.MATIC, '0x104592a158490a9228070E0A8e5343B499e125D0', 18, 'FRAX', 'FRAX')
-export const FXS = new Token(ChainId.MATIC, '0x3e121107F6F22DA4911079845a470757aF4e1A1b', 18, 'FXS', 'Frax Shares')
-// export const SPYRIT = new Token(ChainId.MATIC, '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', 4, 'SPYRIT', 'Autonio')
-export const USDC = new Token(ChainId.MATIC, '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', 6, 'USDC', 'USD Coin (PoS)')
-export const DEV = new Token(ChainId.MATIC, '0xDd667bF15E34B126Eaa53198c207E5390374bC1A', 4, 'DEV', 'Developer')
-export const ETHER = new Token(ChainId.MATIC, '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619', 18, 'ETH', 'Ether')
+export const FRAX = new Token(ChainId.POLYGON, '0x104592a158490a9228070E0A8e5343B499e125D0', 18, 'FRAX', 'FRAX')
+export const FXS = new Token(ChainId.POLYGON, '0x3e121107F6F22DA4911079845a470757aF4e1A1b', 18, 'FXS', 'Frax Shares')
+// export const SPYRIT = new Token(ChainId.POLYGON, '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', 4, 'SPYRIT', 'Autonio')
+export const USDC = new Token(ChainId.POLYGON, '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', 6, 'USDC', 'USD Coin (PoS)')
+export const DEV = new Token(ChainId.POLYGON, '0xDd667bF15E34B126Eaa53198c207E5390374bC1A', 4, 'DEV', 'Developer')
+export const ETHER = new Token(ChainId.POLYGON, '0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619', 18, 'ETH', 'Ether')
 
 // export const USDC = new Token(ChainId.MAINNET, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 6, 'USDC', 'USD//C')
 export const USDT = new Token(ChainId.MAINNET, '0xdAC17F958D2ee523a2206206994597C13D831ec7', 6, 'USDT', 'Tether USD')
@@ -29,13 +29,13 @@ export const WBTC = new Token(ChainId.MAINNET, '0x2260FAC5E5542a773Aa44fBCfeDf7C
 export const XENO = new Token(ChainId.ROPSTEN, '0x13681B1F6F93977F62389E0a2b1E84BA24d78fbc', 4, 'XENO', 'XENO')
 export const ADDY = new Token(ChainId.ROPSTEN, '0x6aA16f7844E3aF995985bd035EEc62d88E418EF1', 8, 'ADDY', 'ADDY Token')
 //piggy
-export const $L1 = new Token(ChainId.MATIC, '0x928BcA1fBBE72Ce46ffe06Cd752c552E503c36e9', 18, '$L1', 'Liquid1')
-export const WMATIC = new Token(ChainId.MATIC, '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', 18, 'MATIC', 'Polygon' )
-export const LT = new Token(ChainId.MATIC, '0x84F4A604Ae84326A32EF4A80Ce25c55Eb6288C97', 18, 'LiquidTest', 'LT')
-export const SPYRIT = new Token(ChainId.MATIC, '0xCA63D9208E3a40E6Ff0eAfFDcf01daf885612CF3', 5, 'SPYRIT', 'SpyritCoin')
-export const FTM = new Token(ChainId.MATIC, '0xB85517b87BF64942adf3A0B9E4c71E4Bc5Caa4e5', 18, 'FTM', 'Fantom Token')
-export const AVAX = new Token(ChainId.MATIC, '0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b', 18, 'AVAX', 'Avalanche Token')
-export const DAI = new Token(ChainId.MATIC, '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063', 18, 'DAI', 'Dai Stablecoin')
+export const $L1 = new Token(ChainId.POLYGON, '0x928BcA1fBBE72Ce46ffe06Cd752c552E503c36e9', 18, '$L1', 'Liquid1')
+export const WMATIC = new Token(ChainId.POLYGON, '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270', 18, 'MATIC', 'Polygon' )
+export const LT = new Token(ChainId.POLYGON, '0x84F4A604Ae84326A32EF4A80Ce25c55Eb6288C97', 18, 'LiquidTest', 'LT')
+export const SPYRIT = new Token(ChainId.POLYGON, '0xCA63D9208E3a40E6Ff0eAfFDcf01daf885612CF3', 5, 'SPYRIT', 'SpyritCoin')
+export const FTM = new Token(ChainId.POLYGON, '0xB85517b87BF64942adf3A0B9E4c71E4Bc5Caa4e5', 18, 'FTM', 'Fantom Token')
+export const AVAX = new Token(ChainId.POLYGON, '0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b', 18, 'AVAX', 'Avalanche Token')
+export const DAI = new Token(ChainId.POLYGON, '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063', 18, 'DAI', 'Dai Stablecoin')
 
 
 // Block time here is slightly higher (~1s) than average in order to avoid ongoing proposals past the displayed time
@@ -52,10 +52,11 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  // [ChainId.MATIC]: new Token(ChainId.MATIC, '0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96', 4, 'SPYRIT', 'Autonio'),
-  [ChainId.MATIC]: new Token(ChainId.MATIC, '0xCA63D9208E3a40E6Ff0eAfFDcf01daf885612CF3', 5, 'SPYRIT', 'SpyritCoin')
+  [ChainId.BSC]: new Token(ChainId.BSC, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.BSC_TEST]: new Token(ChainId.BSC_TEST, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.POLYGON_MUMBAI]: new Token(ChainId.POLYGON_MUMBAI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  // [ChainId.POLYGON]: new Token(ChainId.POLYGON, '0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96', 4, 'SPYRIT', 'Autonio'),
+  [ChainId.POLYGON]: new Token(ChainId.POLYGON, '0xCA63D9208E3a40E6Ff0eAfFDcf01daf885612CF3', 5, 'SPYRIT', 'SpyritCoin')
 }
 
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
@@ -72,10 +73,11 @@ export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
   [ChainId.ROPSTEN]: [WETH[ChainId.ROPSTEN]],
-  [ChainId.MATIC]: [WETH[ChainId.MATIC]],
+  [ChainId.POLYGON]: [WETH[ChainId.POLYGON]],
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
-  [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
-  [ChainId.KOVAN]: [WETH[ChainId.KOVAN]]
+  [ChainId.BSC]: [WETH[ChainId.BSC]],
+  [ChainId.BSC_TEST]: [WETH[ChainId.BSC_TEST]],
+  [ChainId.POLYGON_MUMBAI]: [WETH[ChainId.POLYGON_MUMBAI]]
 }
 
 // used to construct intermediary pairs for trading
@@ -107,10 +109,10 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
-  [ChainId.MATIC]: [
+  [ChainId.POLYGON]: [
     // [
-    //   new Token(ChainId.MATIC, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai'),
-    //   new Token(ChainId.MATIC, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin')
+    //   new Token(ChainId.POLYGON, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai'),
+    //   new Token(ChainId.POLYGON, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin')
     // ],
     [USDC, SPYRIT],
     // [ETH, USDC]

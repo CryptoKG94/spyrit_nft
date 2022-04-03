@@ -1,16 +1,26 @@
-import { ChainId } from '@uniswap/sdk'
+// import { ChainId } from '../constants'
 import { FortmaticConnector as FortmaticConnectorCore } from '@web3-react/fortmatic-connector'
 
 export const OVERLAY_READY = 'OVERLAY_READY'
 
-type FormaticSupportedChains = Extract<ChainId, ChainId.MAINNET | ChainId.ROPSTEN | ChainId.RINKEBY | ChainId.KOVAN | ChainId.MATIC>
+export enum ChainId {
+  MAINNET = 1,
+  ROPSTEN = 3,
+  RINKEBY = 4,
+  BSC = 56,
+  BSC_TEST = 97,
+  POLYGON = 137,
+  POLYGON_MUMBAI = 80001
+}
+
+type FormaticSupportedChains = Extract<ChainId, ChainId.MAINNET | ChainId.ROPSTEN | ChainId.RINKEBY | ChainId.BSC | ChainId.POLYGON>
 
 const CHAIN_ID_NETWORK_ARGUMENT: { readonly [chainId in FormaticSupportedChains]: string | undefined } = {
   [ChainId.MAINNET]: undefined,
   [ChainId.ROPSTEN]: 'ropsten',
   [ChainId.RINKEBY]: 'rinkeby',
-  [ChainId.MATIC]: 'matic',
-  [ChainId.KOVAN]: 'kovan'  
+  [ChainId.POLYGON]: 'matic',
+  [ChainId.BSC]: 'bsc'  
 }
 
 export class FortmaticConnector extends FortmaticConnectorCore {

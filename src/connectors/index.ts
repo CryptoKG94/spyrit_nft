@@ -6,6 +6,8 @@ import { PortisConnector } from '@web3-react/portis-connector'
 
 import { FortmaticConnector } from './Fortmatic'
 import { NetworkConnector } from './NetworkConnector'
+import { ALL_SUPPORTED_CHAIN_IDS, SupportedChainId } from 'constants/chains'
+import { INFURA_NETWORK_URLS } from 'constants/infura'
 
 const NETWORK_URL = process.env.REACT_APP_NETWORK_URL
 const FORMATIC_KEY = process.env.REACT_APP_FORTMATIC_KEY
@@ -18,7 +20,8 @@ if (typeof NETWORK_URL === 'undefined') {
 }
 
 export const network = new NetworkConnector({
-  urls: { [NETWORK_CHAIN_ID]: NETWORK_URL }
+  urls: INFURA_NETWORK_URLS,
+  defaultChainId: NETWORK_CHAIN_ID,
 })
 
 
@@ -28,12 +31,13 @@ export function getNetworkLibrary(): Web3Provider {
 }
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [1, 137]
+  supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
 })
 
 // mainnet only
 export const walletconnect = new WalletConnectConnector({
-  rpc: { 1: NETWORK_URL },
+  supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
+  rpc: INFURA_NETWORK_URLS,
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
   // pollingInterval: 15000
@@ -53,8 +57,9 @@ export const portis = new PortisConnector({
 
 // mainnet only
 export const walletlink = new WalletLinkConnector({
-  url: NETWORK_URL,
+  url: INFURA_NETWORK_URLS[SupportedChainId.MAINNET],
   appName: 'Uniswap',
   appLogoUrl:
-    'https://mpng.pngfly.com/20181202/bex/kisspng-emoji-domain-unicorn-pin-badges-sticker-unicorn-tumblr-emoji-unicorn-iphoneemoji-5c046729264a77.5671679315437924251569.jpg'
+    'https://mpng.pngfly.com/20181202/bex/kisspng-emoji-domain-unicorn-pin-badges-sticker-unicorn-tumblr-emoji-unicorn-iphoneemoji-5c046729264a77.5671679315437924251569.jpg',
+  supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
 })

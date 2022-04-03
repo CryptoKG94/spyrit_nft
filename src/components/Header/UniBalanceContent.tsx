@@ -103,7 +103,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
               <TYPE.white color="white">Total Supply</TYPE.white>
               <TYPE.white color="white">{totalSupply?.toFixed(0, { groupSeparator: ',' })}</TYPE.white>
             </RowBetween>
-            {uni && uni.chainId === ChainId.MATIC ? (
+            {uni && uni.chainId === ChainId.POLYGON ? (
               <ExternalLink href={`https://dexscreener.com/polygon/0x4ace2f2181ac3ccaab642470451509d677182fd0`}>View SPYRIT Analytics</ExternalLink>
             ) : null}
           </AutoColumn>

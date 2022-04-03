@@ -1,22 +1,18 @@
 import { createAction } from '@reduxjs/toolkit'
 import { TokenList } from '@uniswap/token-lists'
+import { SupportedChainId } from '../../constants/chains'
 
 export type PopupContent =
   | {
-      txn: {
-        hash: string
-        success: boolean
-        summary?: string
-      }
+    txn: {
+      hash: string
+      success: boolean
+      summary?: string
     }
+  }
   | {
-      listUpdate: {
-        listUrl: string
-        oldList: TokenList
-        newList: TokenList
-        auto: boolean
-      }
-    }
+    failedSwitchNetwork: SupportedChainId
+  }
 
 export enum ApplicationModal {
   WALLET,
@@ -26,7 +22,8 @@ export enum ApplicationModal {
   CLAIM_POPUP,
   MENU,
   DELEGATE,
-  VOTE
+  VOTE,
+  NETWORK_SELECTOR,
 }
 
 export const updateBlockNumber = createAction<{ chainId: number; blockNumber: number }>('application/updateBlockNumber')
