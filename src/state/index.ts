@@ -5,7 +5,6 @@ import application from './application/reducer'
 import { updateVersion } from './global/actions'
 import user from './user/reducer'
 import transactions from './transactions/reducer'
-import swap from './swap/reducer'
 import presale from './presale/reducer'
 import toggle from './toggle/reducer'
 import mint from './mint/reducer'
@@ -21,7 +20,6 @@ const store = configureStore({
     application,
     user,
     transactions,
-    swap,
     presale,
     toggle,
     mint,

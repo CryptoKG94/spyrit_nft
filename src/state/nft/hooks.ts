@@ -3,7 +3,7 @@ import { useMultipleContractSingleData, useSingleContractMultipleData } from '..
 import { NFT_MINT_INTERFACE } from 'constants/abis/staking-rewards'
 import { useEffect, useMemo, useState } from 'react'
 import { useNftMintContract } from 'hooks/useContract'
-import { NFT_MINT_ADDRESS } from 'constants/abis/staking-rewards'
+// import { NFT_MINT_ADDRESS } from 'constants/abis/staking-rewards'
 
 
 export function useNftMintInfo(): {

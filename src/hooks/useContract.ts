@@ -43,11 +43,13 @@ export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: b
 }
 
 export function useNftMintContract(withSignerIfPossible?: boolean): Contract | null {
-  return useContract(NFT_MINT_ADDRESS, NFT_MINT_INTERFACE, withSignerIfPossible)
+  const { chainId } = useActiveWeb3React()
+  return useContract(chainId ? NFT_MINT_ADDRESS[chainId] : undefined, NFT_MINT_INTERFACE, withSignerIfPossible)
 }
 
 export function useNftStakeContract(withSignerIfPossible?: boolean): Contract | null {
-  return useContract(NFT_STAKE_ADDRESS, NFT_STAKE_INTERFACE, withSignerIfPossible)
+  const { chainId } = useActiveWeb3React()
+  return useContract(chainId ? NFT_STAKE_ADDRESS[chainId] : undefined, NFT_STAKE_INTERFACE, withSignerIfPossible)
 }
 
 export function useWETHContract(withSignerIfPossible?: boolean): Contract | null {

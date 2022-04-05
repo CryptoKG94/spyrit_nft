@@ -89,7 +89,7 @@ export default function NftCard( {id}: NftCardProps ) {
     // console.log('debug nft img', tempImgSrc, typeof(tempImgSrc))
     // tempImgSrc = "https://ipfs.io/ipfs/QmbDLYDRju5wPgZXh5tcsoiFivXUY1kGHxHVd1rkfBfDpF/Governance.mp4"
     var tempImgName = imgName? imgName: ""
-    const { account } = useActiveWeb3React()
+    const { account, chainId } = useActiveWeb3React()
       
     const nftStakeContract = useNftStakeContract(true)
 
@@ -97,13 +97,13 @@ export default function NftCard( {id}: NftCardProps ) {
 
     useEffect(() => {
       async function fetchData() {
-        const scData = await nftMintContract?.isApprovedForAll(account, NFT_STAKE_ADDRESS)
+        const scData = await nftMintContract?.isApprovedForAll(account, chainId ? NFT_STAKE_ADDRESS[chainId]: undefined)
         setApproved(scData)
       }
 
       fetchData()
 
-    }, [account, NFT_STAKE_ADDRESS])
+    }, [account])
 
 
     const handleStake = useCallback(async (): Promise<void> => {
@@ -147,12 +147,12 @@ export default function NftCard( {id}: NftCardProps ) {
         console.error('nftMintContract is null')
         return
       }
-      const estimatedGas = await nftMintContract.estimateGas.setApprovalForAll(NFT_STAKE_ADDRESS, true).catch(() => {
+      const estimatedGas = await nftMintContract.estimateGas.setApprovalForAll(chainId ? NFT_STAKE_ADDRESS[chainId]: undefined, true).catch(() => {
         // general fallback for tokens who restrict approval amounts
-        return nftMintContract.estimateGas.setApprovalForAll(NFT_STAKE_ADDRESS, true)
+        return nftMintContract.estimateGas.setApprovalForAll(chainId ? NFT_STAKE_ADDRESS[chainId]: undefined, true)
       })
       return nftMintContract
-        .setApprovalForAll(NFT_STAKE_ADDRESS, true, {
+        .setApprovalForAll(chainId ? NFT_STAKE_ADDRESS[chainId]: undefined, true, {
           gasLimit: calculateGasMargin(estimatedGas),
           gasPrice: 5000000000
         })
@@ -160,7 +160,7 @@ export default function NftCard( {id}: NftCardProps ) {
           console.debug('Failed to set Fee', error)
           throw error
         })
-    }, [account, NFT_STAKE_ADDRESS])
+    }, [account])
     return(
       <div style={{marginRight: "26px", marginBottom: "26px"}}>
           <StyledCard>

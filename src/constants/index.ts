@@ -50,10 +50,10 @@ export const TIMELOCK_ADDRESS = '0x1a9C8182C09F50C8318d769245beA52c32BE35BC'
 const UNI_ADDRESS = '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984'
 export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, '0xbece26de0bf9bea957c6067522b59f2dd3aa0d47', 5, 'SPYRIT', 'SpyritCoin'),
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   [ChainId.BSC]: new Token(ChainId.BSC, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
-  [ChainId.BSC_TEST]: new Token(ChainId.BSC_TEST, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
+  [ChainId.BSC_TEST]: new Token(ChainId.BSC_TEST, '0xB0B4D1A643E7d94114Cb08a9B7B4998F36761A68', 5, 'SPYRIT', 'SpyritCoin'),
   [ChainId.POLYGON_MUMBAI]: new Token(ChainId.POLYGON_MUMBAI, UNI_ADDRESS, 18, 'UNI', 'Uniswap'),
   // [ChainId.POLYGON]: new Token(ChainId.POLYGON, '0xad684e79CE4b6D464f2Ff7c3FD51646892e24b96', 4, 'SPYRIT', 'Autonio'),
   [ChainId.POLYGON]: new Token(ChainId.POLYGON, '0xCA63D9208E3a40E6Ff0eAfFDcf01daf885612CF3', 5, 'SPYRIT', 'SpyritCoin')
@@ -81,20 +81,20 @@ const WETH_ONLY: ChainTokenList = {
 }
 
 // used to construct intermediary pairs for trading
-export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
-  ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR, WBTC]
-}
+// export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
+//   ...WETH_ONLY,
+//   [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR, WBTC]
+// }
 
 /**
  * Some tokens can only be swapped via certain pairs, so we override the list of bases that are considered for these
  * tokens.
  */
-export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
-  [ChainId.MAINNET]: {
-    [AMPL.address]: [DAI, WETH[ChainId.MAINNET]]
-  }
-}
+// export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
+//   [ChainId.MAINNET]: {
+//     [AMPL.address]: [DAI, WETH[ChainId.MAINNET]]
+//   }
+// }
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {

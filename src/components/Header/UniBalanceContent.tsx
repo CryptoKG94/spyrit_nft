@@ -6,7 +6,7 @@ import tokenLogo from '../../assets/images/token-logo.png'
 import { UNI } from '../../constants'
 import { useTotalSupply } from '../../data/TotalSupply'
 import { useActiveWeb3React } from '../../hooks'
-import { useMerkleDistributorContract } from '../../hooks/useContract'
+// import { useMerkleDistributorContract } from '../../hooks/useContract'
 import useCurrentBlockTimestamp from '../../hooks/useCurrentBlockTimestamp'
 import { useAggregateUniBalance, useTokenBalance } from '../../state/wallet/hooks'
 import { ExternalLink, TYPE, UniTokenAnimated } from '../../theme'
@@ -49,7 +49,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
   const totalSupply: TokenAmount | undefined = useTotalSupply(uni)
   const uniPrice = useUSDCPrice(uni)
   const blockTimestamp = useCurrentBlockTimestamp()
-  const unclaimedUni = useTokenBalance(useMerkleDistributorContract()?.address, uni)
+  // const unclaimedUni = useTokenBalance(useMerkleDistributorContract()?.address, uni)
   // const circulation: TokenAmount | undefined = useMemo(
   //   () =>
   //     blockTimestamp && uni && chainId === ChainId.MAINNET
