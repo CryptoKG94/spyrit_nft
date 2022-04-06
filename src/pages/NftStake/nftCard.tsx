@@ -46,7 +46,7 @@ const StyledButton = styled.button`
   color: white;
   transform: skew(-20deg);
   :hover {
-      cursor: pointer
+      cursor: pointer;
       background-image: linear-gradient(88.56deg,#6616AC -44.34%,#D426FB 77.48%);
   }
 `

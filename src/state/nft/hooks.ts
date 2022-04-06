@@ -60,10 +60,24 @@ export const useTokenIds = (balance: any) => {
   
   const { account } = useActiveWeb3React()
   const nftMintContract = useNftMintContract()
+  const [mintIds, setmintIds] = useState<any>([]);
+  const indexes: any = []
 
-  let k = 0
-  const indexes = []
-  for(k=0; k < balance; k++) {
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     for (let i = 0; i < balance; i ++) {
+  //       let res = await nftMintContract?.tokenIds(account, i);
+  //       indexes[i] = res;
+  //     }
+  //     if (indexes.length > 0)
+  //       setmintIds(indexes);
+  //   }
+
+  //   fetchData();
+  // })
+
+  // return mintIds;
+  for(let k=0; k < balance; k++) {
     indexes[k] = k;
   }
   const results = useSingleContractMultipleData(

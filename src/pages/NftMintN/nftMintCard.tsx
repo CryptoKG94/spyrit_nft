@@ -64,7 +64,7 @@ const StyledButtonUn = styled.button`
   color: white;
   transform: skew(-20deg);
   :hover {
-    cursor: pointer
+    cursor: pointer;
     background-image: linear-gradient(88.56deg,#6616AC -44.34%,#D426FB 77.48%);
   }
 `
@@ -101,8 +101,9 @@ export default function NftMintCard( {id}: NftCardProps ) {
       }
       
       const mintPrice = await nftMintContract.cost()
-      const estimatedGas = await nftMintContract.estimateGas.mint(nId, {value: mintPrice}).catch(() => {
+      const estimatedGas = await nftMintContract.estimateGas.mint(nId, {value: mintPrice}).catch((e) => {
         // general fallback for tokens who restrict approval amounts
+        console.log(e)
         return nftMintContract.estimateGas.mint(nId)
       })
       // const estimatedGas = BigNumber.from(1000000)

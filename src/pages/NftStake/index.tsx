@@ -70,7 +70,7 @@ const StyledButton = styled.button`
   color: white;
   transform: skew(-20deg);
   :hover {
-      cursor: pointer
+      cursor: pointer;
       background-image: linear-gradient(88.56deg,#6616AC -44.34%,#D426FB 77.48%);
   }
 `
@@ -121,7 +121,7 @@ export default function NftStake() {
   const uni = chainId ? UNI[chainId] : undefined
   const uniPrice = useUSDCPrice(uni)
   // console.log('debug spyrit price', uniPrice?.toFixed(7))
-  const nftBalance_result = parseInt(((nftBalance?.[0])?.result)?.[0]._hex, 16)
+  const nftBalance_result = parseInt(nftBalance?._hex, 16)
 
   const tokenIds = useTokenIds(nftBalance_result)
   let stakedIds = useStakedTokenIds()
@@ -145,7 +145,7 @@ export default function NftStake() {
   let k = 0;
 
   for (k = 0; k < len; k++) {
-    const temp = tokenIds[k]?.result?.toString()
+    const temp = tokenIds[k]?.toString()
     indexes.push(parseInt(temp ? temp : '100001'))
   }
   let tempIndexes = indexes

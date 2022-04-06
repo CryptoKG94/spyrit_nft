@@ -49,7 +49,7 @@ function Updaters() {
       <UserUpdater />
       <ApplicationUpdater />
       <TransactionUpdater />
-      <MulticallUpdater />
+      {/* <MulticallUpdater /> */}
     </>
   )
 }
